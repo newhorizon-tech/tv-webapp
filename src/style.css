@@ -10,6 +10,10 @@ html {
   background: #f8f0e3;
 }
 
+body {
+  height: 100vh;
+}
+
 .navbar {
   display: flex;
   padding: 20px 8vw;
@@ -29,4 +33,22 @@ html {
   justify-content: space-between;
   list-style: none;
   padding: 10px 20px;
+}
+
+main {
+  height: 84%;
+}
+
+footer,
+.footer-box {
+  border: 1px solid #b8b1a6;
+}
+
+.credits {
+  padding: 20px;
+}
+
+.footer-box {
+  height: 20px;
+  background-color: grey;
 }
