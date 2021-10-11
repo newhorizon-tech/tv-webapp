@@ -1,47 +1,147 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+:root {
+  --bg-dark: #111111;
+  --color-white: #fff;
+  --theme-color: #00b1a2;
+  --gray: #d8d8d8;
+}
 
 * {
   margin: 0;
   padding: 0;
 }
 
-html {
-  font-family: 'Raleway', sans-serif;
-  background: #f8f0e3;
-}
-
 body {
-  height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  background: var(--gray);
 }
 
 .navbar {
   display: flex;
-  padding: 20px 8vw;
-  background: #b8b1a6;
+  padding: 10px 8vw;
+  color: var(--color-white);
+  background: var(--bg-dark);
 }
 
 .logo {
   flex: 1px;
   display: flex;
   align-items: center;
-  padding: 10px;
+  font-family: 'Righteous', 'cursive';
+  font-size: 3rem;
+  color: var(--theme-color);
+  cursor: pointer;
 }
 
 .categories {
   flex: 4;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   list-style: none;
   padding: 10px 20px;
 }
 
-main {
-  height: 84%;
+.category-item {
+  width: 120px;
+  padding: 5px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.category-item:hover {
+  color: var(--theme-color);
+  transform: scale(1.1);
+}
+
+.content-body {
+  margin: 0;
+  height: auto;
+  min-height: 74vh;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  margin: 50px 3vw;
+}
+
+.tv-show-card {
+  width: 210px;
+  height: 400px;
+  margin: 20px 10px;
+  color: var(--color-white);
+  list-style: none;
+  background: rgba(13, 14, 22, 0.9);
+  box-shadow: 0 8px 32px 0 rgba(24, 42, 46, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 5px;
+}
+
+.tv-show-image {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.title {
+  margin: 0;
+  padding: 5px;
+}
+
+.network-rating {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  margin: 0;
+}
+
+.network-rating p {
+  margin: 0;
+}
+
+.country-likes {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.likes,
+.country {
+  margin: 0;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.comments {
+  width: 100px;
+  padding: 4px;
+  color: var(--bg-dark);
+  background: var(--theme-color);
+  border: 2px solid var(--theme-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comments:hover {
+  color: var(--color-white);
+  background: none;
 }
 
 footer,
 .footer-box {
-  border: 1px solid #b8b1a6;
+  border: 1px solid var(--bg-dark);
 }
 
 .credits {
@@ -50,5 +150,5 @@ footer,
 
 .footer-box {
   height: 20px;
-  background-color: grey;
+  background-color: var(--bg-dark);
 }
