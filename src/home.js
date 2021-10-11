@@ -8,12 +8,12 @@ const card = (shows) => {
     const img = document.createElement('img');
     img.className = 'tv-show-image';
     img.src = show.image.medium;
-    img.alt = show.name + ' TV show image';
+    img.alt = `${show.name} TV show image`;
     li.appendChild(img);
 
-    const h4  = document.createElement('h4');
+    const h4 = document.createElement('h4');
     h4.className = 'title';
-    h4.innerHTML  = show.name;
+    h4.innerHTML = show.name;
     li.appendChild(h4);
 
     let div = document.createElement('div');
@@ -22,15 +22,15 @@ const card = (shows) => {
     p.innerHTML = show.network.name;
     div.appendChild(p);
     p = document.createElement('p');
-    p.innerHTML = 'rating: ' + show.rating.average;
+    p.innerHTML = `rating: ${show.rating.average}`;
     div.appendChild(p);
     li.appendChild(div);
 
     div = document.createElement('div');
-    div.className = 'country-likes'
+    div.className = 'country-likes';
     p = document.createElement('p');
-    p.className = 'country'
-    p.innerHTML = 'country: ' + show.network.country.code;
+    p.className = 'country';
+    p.innerHTML = `country: ${show.network.country.code}`;
     div.appendChild(p);
     p = document.createElement('p');
     p.className = 'likes';
@@ -50,5 +50,5 @@ const card = (shows) => {
     cardList.appendChild(li);
   });
 };
-  
+
 export default card;

@@ -1,4 +1,4 @@
-export const getShows = async () => {
+const getShows = async () => {
   try {
     const response = await fetch(' https://api.tvmaze.com/shows');
     const data = await response.json();
@@ -7,3 +7,5 @@ export const getShows = async () => {
     throw new Error(error.message);
   }
 };
+
+export default getShows;
