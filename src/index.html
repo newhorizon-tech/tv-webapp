@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <title>Binger</title>
 </head>
+
 <body>
-   <header>
+  <header>
     <nav class="navbar">
       <div class="logo">
         Binger
@@ -27,13 +29,20 @@
         <div class="searcher">
           <i class="search icon"></i>
           <input class="search-input" type="text" placeholder="Search">
-        </div>       
+        </div>
       </div>
        <ul class="cards-container"></ul>
    </main>
+   <dialog id="dialog">
+     <div id="dialog-content">
+       <h3>Comments</h3>
+       <button id="close">Close</button>
+     </div>
+   </dialog>
    <footer>
      <p class="credits">Created by Alaukik and Simo under CC license</p>
      <div class="footer-box"></div>
    </footer>
 </body>
+
 </html>
