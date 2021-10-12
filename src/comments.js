@@ -1,4 +1,7 @@
+import dialogPolyfill from 'dialog-polyfill';
+
 const dialog = document.querySelector('#dialog');
+dialogPolyfill.registerDialog(dialog);
 
 const displayComments = () => {
   dialog.showModal();
