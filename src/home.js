@@ -1,4 +1,5 @@
 import { searchShows } from './api';
+import Storage from './storage';
 
 const card = (shows) => {
   const cardList = document.querySelector('.cards-container');
@@ -57,15 +58,16 @@ const search = () => {
   const input = document.querySelector('.search-input');
 
   input.addEventListener('keydown', (e) => {
-    const shows = [];
+    let shows = [];
 
     if (e.key === 'Enter') {
       if (input.value) {
         searchShows(input.value)
           .then((results) => {
             results.forEach((result) => shows.push(result.show));
-            localStorage.setItem('isSearch', true);
-            localStorage.setItem('search-results', JSON.stringify(shows));
+            if (shows.length > 3) shows = shows.slice(0, 3);
+            Storage.setItem('isSearch', 'search request active');
+            Storage.setJson('search-results', shows);
             window.location.reload();
           });
       }
