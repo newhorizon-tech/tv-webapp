@@ -1,5 +1,5 @@
 import { getShows } from './api';
-import card from './home';
+import { card}  from './home';
 import './style.css';
 
 const loadPage = () => {

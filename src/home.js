@@ -1,3 +1,5 @@
+import { searchShows } from './api';
+
 const card = (shows) => {
   const cardList = document.querySelector('.cards-container');
 
@@ -51,4 +53,26 @@ const card = (shows) => {
   });
 };
 
-export default card;
+const search = () => {
+  const input = document.querySelector('.search-input');
+
+  input.addEventListener('keydown', (e) => {
+    let shows = [];
+
+    if (e.key === 'Enter') {
+      if(input.value) {
+        searchShows(input.value)
+        .then((results) => {
+          results.forEach((result) => shows.push(result.show));
+          localStorage.setItem('isSearch', true);
+          localStorage.setItem('search-results', JSON.stringify(shows));
+          window.location.reload();
+        });
+      }
+    }
+  });
+};
+
+export {
+  card, search,
+};
