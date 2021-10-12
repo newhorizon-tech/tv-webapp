@@ -19,12 +19,14 @@ const postData = async (url, data) => {
   return response.json();
 };
 
-const getShows = async () => getData(' https://api.tvmaze.com/shows');
+const getShows = async () => getData('https://api.tvmaze.com/shows');
 
 const getLikes = async () => getData('');
 
 const getComments = async () => getData('');
 
+const searchShows = async (query) => getData(`https://api.tvmaze.com/search/shows?q=${query}`);
+
 export {
-  getShows, getLikes, getComments, postData,
+  getShows, getLikes, getComments, postData, searchShows,
 };
