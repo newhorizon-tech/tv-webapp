@@ -1,5 +1,6 @@
-import { getShows } from './api';
+import dialogPolyfill from 'dialog-polyfill';  // eslint-disable-line
 
+import { getShows } from './api';
 import startComment from './comments';
 import { card } from './home';
 import './style.css';
