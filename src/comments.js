@@ -1,8 +1,7 @@
 const dialog = document.querySelector('#dialog');
 
-const displayComments = (event) => {
+const displayComments = () => {
   dialog.showModal();
-  console.log(event.target);
 };
 
 const startComment = () => {
