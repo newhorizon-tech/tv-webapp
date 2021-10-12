@@ -37,7 +37,7 @@ const card = (shows) => {
     div.appendChild(p);
     p = document.createElement('p');
     p.className = 'likes';
-    p.innerHTML = '<i class=\'thumbs up outline icon\'></i> Likes';
+    p.innerHTML = '<i <i class=\'heart icon\'></i> Likes';
     div.appendChild(p);
     li.appendChild(div);
 
