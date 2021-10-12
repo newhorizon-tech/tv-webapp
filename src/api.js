@@ -1,3 +1,9 @@
+const apiId = 'O69f71qI6jn4R8wRQZmw';
+
+const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
+
+const targetUrl = `${baseUrl + apiId}/`;
+
 const getData = async (url) => {
   try {
     const response = await fetch(url);
@@ -19,14 +25,12 @@ const postData = async (url, data) => {
   return response.json();
 };
 
-const getShows = async () => getData('https://api.tvmaze.com/shows');
+const getShows = async () => getData(' https://api.tvmaze.com/shows');
 
-const getLikes = async () => getData('');
+const getLikes = async () => getData(`${targetUrl}likes`);
 
-const getComments = async () => getData('');
-
-const searchShows = async (query) => getData(`https://api.tvmaze.com/search/shows?q=${query}`);
+const getComments = async () => getData(`${targetUrl}comments`);
 
 export {
-  getShows, getLikes, getComments, postData, searchShows,
+  getShows, getLikes, getComments, postData,
 };
