@@ -31,6 +31,8 @@ const getLikes = async () => getData(`${targetUrl}likes`);
 
 const getComments = async () => getData(`${targetUrl}comments`);
 
+const searchShows = async (query) => getData(`https://api.tvmaze.com/search/shows?q=${query}`);
+
 export {
-  getShows, getLikes, getComments, postData,
+  getShows, getLikes, getComments, postData, searchShows,
 };
