@@ -1,4 +1,4 @@
-import getShows from './api';
+import { getShows } from './api';
 import card from './home';
 import './style.css';
 
