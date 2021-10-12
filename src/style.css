@@ -200,12 +200,6 @@ footer {
   background-color: var(--bg-dark);
 }
 
-.modal-background {
-  height: 100%;
-  weight: 100%;
-  background-color: black;
-}
-
 #dialog {
   width: 300px;
   height: 300px;
