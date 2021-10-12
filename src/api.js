@@ -1,13 +1,13 @@
-async function getData(url) {
+const getData = async (url) => {
   try {
     const response = await fetch(url);
     return response.json();
   } catch (error) {
     throw new Error(error.message);
   }
-}
+};
 
-async function postData(url, data) {
+const postData = async (url, data) => {
   const response = await fetch(url, {
     method: 'POST',
     mode: 'cors',
@@ -17,7 +17,7 @@ async function postData(url, data) {
     body: JSON.stringify(data),
   });
   return response.json();
-}
+};
 
 const getShows = async () => getData(' https://api.tvmaze.com/shows');
 
