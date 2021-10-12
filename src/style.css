@@ -201,8 +201,9 @@ footer {
 }
 
 #dialog {
-  width: 300px;
-  height: 300px;
+  width: 60%;
+  min-width: 200px;
+  min-height: 300px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
