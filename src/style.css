@@ -117,8 +117,8 @@ body {
   padding: 5px;
 }
 
-.likes,
-.country {
+.country,
+.likes {
   margin: 0;
 }
 
@@ -128,7 +128,8 @@ body {
   padding-top: 5px;
 }
 
-.comments {
+.comments,
+button {
   width: 100px;
   padding: 4px;
   color: var(--bg-dark);
@@ -143,8 +144,8 @@ body {
   background: none;
 }
 
-footer,
-.footer-box {
+.footer-box,
+footer {
   border: 1px solid var(--bg-dark);
 }
 
@@ -155,4 +156,27 @@ footer,
 .footer-box {
   height: 20px;
   background-color: var(--bg-dark);
+}
+
+.modal-background {
+  height: 100%;
+  weight: 100%;
+  background-color: black;
+}
+
+#dialog {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+#dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
