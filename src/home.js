@@ -57,17 +57,17 @@ const search = () => {
   const input = document.querySelector('.search-input');
 
   input.addEventListener('keydown', (e) => {
-    let shows = [];
+    const shows = [];
 
     if (e.key === 'Enter') {
-      if(input.value) {
+      if (input.value) {
         searchShows(input.value)
-        .then((results) => {
-          results.forEach((result) => shows.push(result.show));
-          localStorage.setItem('isSearch', true);
-          localStorage.setItem('search-results', JSON.stringify(shows));
-          window.location.reload();
-        });
+          .then((results) => {
+            results.forEach((result) => shows.push(result.show));
+            localStorage.setItem('isSearch', true);
+            localStorage.setItem('search-results', JSON.stringify(shows));
+            window.location.reload();
+          });
       }
     }
   });
