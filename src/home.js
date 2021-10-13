@@ -58,14 +58,13 @@ const search = () => {
   const input = document.querySelector('.search-input');
 
   input.addEventListener('keydown', (e) => {
-    let shows = [];
+    const shows = [];
 
     if (e.key === 'Enter') {
       if (input.value) {
         searchShows(input.value)
           .then((results) => {
             results.forEach((result) => shows.push(result.show));
-            if (shows.length > 3) shows = shows.slice(0, 3);
             Storage.setItem('isSearch', 'search request active');
             Storage.setJson('search-results', shows);
             window.location.reload();
