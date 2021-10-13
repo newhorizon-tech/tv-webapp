@@ -7,6 +7,7 @@ const card = (shows) => {
   shows.forEach((show) => {
     const li = document.createElement('li');
     li.className = 'tv-show-card';
+    li.id = show.externals.imdb;
 
     const img = document.createElement('img');
     img.className = 'tv-show-image';
