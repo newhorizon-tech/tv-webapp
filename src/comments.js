@@ -4,15 +4,18 @@ import { getComments } from './api';
 const dialog = document.querySelector('#dialog');
 dialogPolyfill.registerDialog(dialog);
 
-const commentsList = document.querySelector('#comment-list');
+const commentsList = document.querySelector('#comments-list');
 
-const displayComments = (e) => {
+const displayComments = async (e) => {
   const showId = e.target.parentNode.parentNode.id;
-  const comments = getComments(showId);
+  const comments = await getComments(showId);
+  comments.forEach((comment) => {
+    const commentElement = document.createElement('li');
+    commentElement.className = 'comment';
+    commentElement.textContent = `${comment.username} : ${comment.comment}`;
+    commentsList.append(commentElement);
+  });
 
-  const comment = document.createElement('li');
-  comment.className = 'comment';
-  commentsList.append(comment);
   dialog.showModal();
 };
 
