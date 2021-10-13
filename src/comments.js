@@ -1,4 +1,5 @@
 import dialogPolyfill from 'dialog-polyfill';
+import { getComments } from './api';
 
 const dialog = document.querySelector('#dialog');
 dialogPolyfill.registerDialog(dialog);
@@ -7,11 +8,11 @@ const commentsList = document.querySelector('#comment-list');
 
 const displayComments = (e) => {
   const showId = e.target.parentNode.parentNode.id;
+  const comments = getComments(showId);
+
   const comment = document.createElement('li');
   comment.className = 'comment';
-  comment.id = `comment-${commentId}`;
-
-  commentsList;
+  commentsList.append(comment);
   dialog.showModal();
 };
 
