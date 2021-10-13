@@ -1,4 +1,5 @@
 import { searchShows } from './api';
+import Storage from './storage';
 
 const card = (shows) => {
   const cardList = document.querySelector('.cards-container');
@@ -6,6 +7,7 @@ const card = (shows) => {
   shows.forEach((show) => {
     const li = document.createElement('li');
     li.className = 'tv-show-card';
+    li.id = show.externals.imdb;
 
     const img = document.createElement('img');
     img.className = 'tv-show-image';
@@ -36,7 +38,7 @@ const card = (shows) => {
     div.appendChild(p);
     p = document.createElement('p');
     p.className = 'likes';
-    p.innerHTML = '<i class=\'thumbs up outline icon\'></i> Likes';
+    p.innerHTML = '<i <i class=\'heart icon\'></i> Likes';
     div.appendChild(p);
     li.appendChild(div);
 
@@ -64,8 +66,8 @@ const search = () => {
         searchShows(input.value)
           .then((results) => {
             results.forEach((result) => shows.push(result.show));
-            localStorage.setItem('isSearch', true);
-            localStorage.setItem('search-results', JSON.stringify(shows));
+            Storage.setItem('isSearch', 'search request active');
+            Storage.setJson('search-results', shows);
             window.location.reload();
           });
       }

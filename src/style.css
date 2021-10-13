@@ -186,6 +186,25 @@ button {
   background: none;
 }
 
+#dialog {
+  width: 60%;
+  min-width: 200px;
+  min-height: 300px;
+  left: 50%;
+  top: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--bg-dark);
+  border-radius: 5px;
+}
+
+#dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer-box,
 footer {
   border: 1px solid var(--bg-dark);
@@ -198,21 +217,4 @@ footer {
 .footer-box {
   height: 20px;
   background-color: var(--bg-dark);
-}
-
-#dialog {
-  width: 60%;
-  min-width: 200px;
-  min-height: 300px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-}
-
-#dialog-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
