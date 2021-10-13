@@ -3,6 +3,8 @@ import dialogPolyfill from 'dialog-polyfill';
 const dialog = document.querySelector('#dialog');
 dialogPolyfill.registerDialog(dialog);
 
+const commentsList = document.querySelector('#comment-list');
+
 const displayComments = (e) => {
   const commentId = e.target.parentNode.parentNode.id;
   dialog.showModal();
