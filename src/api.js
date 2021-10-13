@@ -33,10 +33,14 @@ const getShows = async () => getData('https://api.tvmaze.com/shows');
 
 const getLikes = async () => getData(`${targetUrl}likes`);
 
-const getComments = async () => getData(`${targetUrl}comments`);
+const getComments = async (itemId) => getData(`${targetUrl}comments?item_id=${itemId}`);
+
+const postComments = async (comment) => postData(`${targetUrl}comments`, comment);
+
+const postLikes = async (like) => postData(`${targetUrl}likes`, like);
 
 const searchShows = async (query) => getData(`https://api.tvmaze.com/search/shows?q=${query}`);
 
 export {
-  getShows, getLikes, getComments, postData, searchShows,
+  getShows, getLikes, getComments, postData, searchShows, postComments, postLikes,
 };
