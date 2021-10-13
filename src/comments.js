@@ -6,7 +6,12 @@ dialogPolyfill.registerDialog(dialog);
 const commentsList = document.querySelector('#comment-list');
 
 const displayComments = (e) => {
-  const commentId = e.target.parentNode.parentNode.id;
+  const showId = e.target.parentNode.parentNode.id;
+  const comment = document.createElement('li');
+  comment.className = 'comment';
+  comment.id = `comment-${commentId}`;
+
+  commentsList;
   dialog.showModal();
 };
 
