@@ -164,6 +164,16 @@ body {
   margin: 0;
 }
 
+.heart.icon {
+  width: auto;
+  height: 100%;
+  padding: 0 2px;
+}
+
+.heart.icon:hover {
+  color: #ff0000;
+}
+
 .card-actions {
   display: flex;
   justify-content: center;
