@@ -7,6 +7,7 @@ import {
 } from './home';
 import Storage from './storage';
 import { addLikes, displayLikes } from './likes';
+import displayItemsCount from './allItemsCounter';
 import './style.css';
 
 const validateData = (data) => {
@@ -44,6 +45,7 @@ const loadPage = async () => {
   addLikes();
   displayLikes();
   startComment();
+  displayItemsCount();
 };
 
 search();
