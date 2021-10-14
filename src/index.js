@@ -1,12 +1,9 @@
-import {
-  getShows,
-} from './api';
+import { getShows } from './api';
 import startComment from './comments';
-import {
-  card, search,
-} from './home';
+import { card, search } from './home';
 import Storage from './storage';
 import { addLikes, displayLikes } from './likes';
+import { displayItemsCount } from './counters';
 import './style.css';
 
 const validateData = (data) => {
@@ -44,6 +41,7 @@ const loadPage = async () => {
   addLikes();
   displayLikes();
   startComment();
+  displayItemsCount();
 };
 
 search();

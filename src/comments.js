@@ -4,17 +4,12 @@ import {
   postComments,
 } from './api';
 
-import commentsCounter from './comments-counter';
+import { displayCommentsCounter } from './counters';
 
 const dialog = document.querySelector('#dialog');
 dialogPolyfill.registerDialog(dialog);
 
 const commentsList = document.querySelector('.comments-list');
-
-const displayCounter = (element, commentsList) => {
-  const commentHeader = element.querySelector('#comments-header');
-  commentHeader.textContent = `Comments (${commentsCounter(commentsList)})`;
-};
 
 const displayError = () => {
   const commentMessage = document.createElement('li');
@@ -36,7 +31,7 @@ const displayComments = async (showId) => {
   try {
     const comments = await getComments(showId);
     comments.forEach((comment) => displayComment(comment));
-    displayCounter(dialog, commentsList);
+    displayCommentsCounter(dialog, commentsList);
   } catch (error) {
     displayError();
   }

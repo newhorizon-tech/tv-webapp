@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import commentsCounter from '../comments-counter';
+import { commentsCounter } from '../counters';
 
 const comment1 = document.createElement('li');
 comment1.className = 'comment';
