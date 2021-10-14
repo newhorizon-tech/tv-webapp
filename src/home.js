@@ -9,6 +9,12 @@ const card = (shows) => {
     li.className = 'tv-show-card';
     li.id = show.externals.imdb;
 
+    const summary = document.createElement('div');
+    summary.innerHTML = show.summary;
+    summary.id = 'summary';
+    summary.hidden = true;
+    li.appendChild(summary);
+
     const img = document.createElement('img');
     img.className = 'tv-show-image';
     img.src = show.image.medium;

@@ -215,6 +215,33 @@ button {
   justify-content: center;
 }
 
+#dialog-content input,
+textarea {
+  margin-bottom: 6px;
+  padding: 4px 5px;
+}
+
+.new-comment {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#name {
+  height: 30px;
+  width: 180px;
+}
+
+.comments-list {
+  margin-bottom: 5%;
+  list-style-type: none;
+}
+
+.comments-list li {
+  padding: 4px 0;
+}
+
 .footer-box,
 footer {
   border: 1px solid var(--bg-dark);

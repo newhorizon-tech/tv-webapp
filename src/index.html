@@ -35,7 +35,15 @@
    </main>
    <dialog id="dialog">
      <div id="dialog-content">
+       <div id="dialog-summary"></div>
+       <h3> Add a comment </h3>
+       <div class="new-comment">
+         <input type="text" id="name" placeholder="Your Name">
+         <textarea rows="4" id="comment-input" placeholder="Your Insights"></textarea>
+         <button id="btn-comment">Comment</button>
+       </div>
        <h3>Comments</h3>
+       <ul class="comments-list"> </ul>
        <button id="close">Close</button>
      </div>
    </dialog>
