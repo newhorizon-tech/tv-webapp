@@ -26,4 +26,4 @@ const displayCommentsCounter = (element, commentsList) => {
   commentHeader.textContent = `Comments (${commentsCounter(commentsList)})`;
 };
 
-export { displayItemsCount, displayCommentsCounter };
+export { itemsCounter, displayItemsCount, displayCommentsCounter };
