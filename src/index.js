@@ -7,7 +7,7 @@ import {
 } from './home';
 import Storage from './storage';
 import { addLikes, displayLikes } from './likes';
-import displayItemsCount from './allItemsCounter';
+import displayItemsCount from './counters';
 import './style.css';
 
 const validateData = (data) => {
