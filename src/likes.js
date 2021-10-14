@@ -1,19 +1,36 @@
-import { postLikes } from './api';
+import { postLikes, getLikes } from './api';
 
-const addLikes = (id = 1) => {
-  const heart = document.querySelector('.heart.icon');
+const itemsID = (element) => element.parentNode.parentNode.parentNode.id;
+
+const displayLikes = async () => {
+  const likesData = await getLikes();
+  const likesCount = document.querySelectorAll('.likes-count');
   let id;
 
-  heart.addEventListener('click', (e) => {
-    id = e.target.parentNode.parentNode.parentNode.id;
-    const json = {
-      "item_id": `item${id}`,
-    }
+  likesCount.forEach((likes) => {
+    id = itemsID(likes);
 
-    postLikes(json);
+    likesData.forEach((item) => {
+      if (item.item_id === id) likes.innerHTML = item.likes;
+    });
+  });
+};
+
+const addLikes = () => {
+  const likeButtons = document.querySelectorAll('.heart.icon');
+  let id;
+
+  likeButtons.forEach((heart) => {
+    heart.addEventListener('click', (e) => {
+      id = itemsID(e.target);
+      postLikes(id)
+        .then((response) => {
+          if (response === 'Created') window.location.reload();
+        });
+    });
   });
 };
 
 export {
-    addLikes,
+  addLikes, displayLikes,
 };

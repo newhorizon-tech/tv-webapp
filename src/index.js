@@ -6,6 +6,7 @@ import {
   card, search,
 } from './home';
 import Storage from './storage';
+import { addLikes, displayLikes } from './likes';
 import './style.css';
 
 const validateData = (data) => {
@@ -41,7 +42,8 @@ const loadPage = async () => {
     // console.log(shows);
     card(shows);
   }
-
+  addLikes();
+  displayLikes();
   startComment();
 };
 

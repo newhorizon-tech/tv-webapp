@@ -1,4 +1,4 @@
-import { searchShows, getLikes } from './api';
+import { searchShows } from './api';
 import Storage from './storage';
 
 const card = (shows) => {
