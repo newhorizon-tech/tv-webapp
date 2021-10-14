@@ -16,6 +16,12 @@ const comment5 = document.createElement('li');
 comment5.className = 'comment';
 
 describe('Testing comments counter', () => {
+  test('Zero comments', () => {
+    const commentsList = document.createElement('ul');
+
+    expect(commentsCounter(commentsList)).toBe(0);
+  });
+
   test('One comment', () => {
     const commentsList = document.createElement('ul');
     commentsList.append(comment1);
