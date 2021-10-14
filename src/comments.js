@@ -1,10 +1,26 @@
 import dialogPolyfill from 'dialog-polyfill';
-import { getComments } from './api';
+import {
+  getComments,
+} from './api';
 
 const dialog = document.querySelector('#dialog');
 dialogPolyfill.registerDialog(dialog);
 
 const commentsList = document.querySelector('#comments-list');
+
+const displayError = () => {
+  const commentMessage = document.createElement('li');
+  commentMessage.className = 'no-comments';
+  commentMessage.textContent = 'No Comments';
+  commentsList.append(commentMessage);
+};
+
+const displayComment = (comment) => {
+  const commentElement = document.createElement('li');
+  commentElement.className = 'comment';
+  commentElement.textContent = `${comment.creation_date} ${comment.username} : ${comment.comment}`;
+  commentsList.append(commentElement);
+};
 
 const displayComments = async (e) => {
   commentsList.innerHTML = '';
@@ -13,17 +29,9 @@ const displayComments = async (e) => {
 
   try {
     const comments = await getComments(showId);
-    comments.forEach((comment) => {
-      const commentElement = document.createElement('li');
-      commentElement.className = 'comment';
-      commentElement.textContent = `${comment.username} : ${comment.comment}`;
-      commentsList.append(commentElement);
-    });
+    comments.forEach((comment) => displayComment(comment));
   } catch (error) {
-    const commentMessage = document.createElement('li');
-    commentMessage.className = 'no-comments';
-    commentMessage.textContent = 'No Comments';
-    commentsList.append(commentMessage);
+    displayError();
   }
 };
 
