@@ -1,6 +1,7 @@
 import dialogPolyfill from 'dialog-polyfill';
 import {
-  getComments, postComments,
+  getComments,
+  postComments,
 } from './api';
 
 const dialog = document.querySelector('#dialog');
@@ -33,30 +34,35 @@ const displayComments = async (showId) => {
   }
 };
 
-const inputComment = async (showId) => {
+const validateComment = (name, comment) => name.value !== '' && comment.value !== '';
+
+const inputComment = async () => {
   const nameInput = document.querySelector('#name');
   const commentInput = document.querySelector('#comment-input');
-
-  const commentObj = {
-    item_id: `${showId}`,
-    username: nameInput.value.trim(),
-    comment: commentInput.value.trim(),
-  };
-  nameInput.value = '';
-  commentInput.value = '';
-  dialog.close();
-  await postComments(commentObj);
+  if (validateComment(nameInput, commentInput)) {
+    const commentObj = {
+      item_id: `${commentsList.id}`,
+      username: `${nameInput.value.trim()}`,
+      comment: `${commentInput.value.trim()}`,
+    };
+    nameInput.value = '';
+    commentInput.value = '';
+    await postComments(commentObj);
+    displayComments(commentsList.id);
+  }
 };
 
-const popup = async (e) => {
+const popup = (e) => {
   commentsList.innerHTML = '';
   const showId = e.target.parentNode.parentNode.id;
+  commentsList.id = showId;
+
   dialog.showModal();
 
   displayComments(showId);
 
   const commentBtn = document.querySelector('#btn-comment');
-  commentBtn.addEventListener('click', async () => inputComment(showId));
+  commentBtn.addEventListener('click', async (e) => inputComment(e));
 };
 
 const startComment = () => {

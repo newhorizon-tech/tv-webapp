@@ -1,4 +1,4 @@
-const apiId = 'O69f71qI6jn4R8wRQZmw';
+const apiId = 'KIwE3ehvMSLohr1Qv6dH';
 
 const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 
@@ -23,7 +23,7 @@ const postData = async (url, data) => {
       },
       body: JSON.stringify(data),
     });
-    return response.json();
+    return response.text();
   } catch (error) {
     throw new Error(error.message);
   }
