@@ -28,5 +28,10 @@ describe('Testing comments counter', () => {
 
     expect(commentsCounter(commentsList)).toBe(3);
   });
+  test('Five comments', () => {
+    const commentsList = document.createElement('ul');
+    commentsList.append(comment1, comment2, comment3, comment4, comment5);
+
+    expect(commentsCounter(commentsList)).toBe(5);
   });
 });
