@@ -54,8 +54,12 @@ const inputComment = async () => {
 
 const popup = (e) => {
   commentsList.innerHTML = '';
-  const showId = e.target.parentNode.parentNode.id;
+  const showElement = e.target.parentNode.parentNode;
+  const showId = showElement.id;
   commentsList.id = showId;
+
+  const summaryElement = document.querySelector('#dialog-summary');
+  summaryElement.innerHTML = showElement.querySelector('#summary').innerHTML;
 
   dialog.showModal();
 
