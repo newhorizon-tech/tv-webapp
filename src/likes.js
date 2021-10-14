@@ -15,13 +15,12 @@ const displayLikes = async () => {
   });
 };
 
-const UpdateLike = async (target, id) => {
-  const likesData = await getLikes();
-  const likes = target.parentNode.lastElementChild;
+const UpdateLike = async (target) => {
+  const likesTag = target.parentNode.lastElementChild;
+  let likes = Number(likesTag.textContent);
+  likes += 1;
 
-  likesData.forEach((item) => {
-    if (item.item_id === id) likes.innerHTML = item.likes;
-  });
+  likesTag.innerHTML = likes;
 };
 
 const addLikes = () => {
@@ -33,7 +32,7 @@ const addLikes = () => {
       postLikes({ item_id: id })
         .then((response) => {
           if (response === 'Created') {
-            UpdateLike(e.target, id);
+            UpdateLike(e.target);
           }
         });
     });
