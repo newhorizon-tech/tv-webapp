@@ -9,6 +9,11 @@ dialogPolyfill.registerDialog(dialog);
 
 const commentsList = document.querySelector('.comments-list');
 
+const commentsCounter = (commentsList) => {
+  const comments = commentsList.querySelectorAll('.comment');
+  console.log(comments);
+};
+
 const displayError = () => {
   const commentMessage = document.createElement('li');
   commentMessage.className = 'no-comments';
@@ -29,6 +34,7 @@ const displayComments = async (showId) => {
   try {
     const comments = await getComments(showId);
     comments.forEach((comment) => displayComment(comment));
+    commentsCounter(commentsList);
   } catch (error) {
     displayError();
   }
