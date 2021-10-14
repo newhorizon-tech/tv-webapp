@@ -7,7 +7,7 @@ import {
 const dialog = document.querySelector('#dialog');
 dialogPolyfill.registerDialog(dialog);
 
-const commentsList = document.querySelector('#comments-list');
+const commentsList = document.querySelector('.comments-list');
 
 const displayError = () => {
   const commentMessage = document.createElement('li');

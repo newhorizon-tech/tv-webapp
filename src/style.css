@@ -223,8 +223,13 @@ textarea {
   width: 180px;
 }
 
-#comments-list {
+.comments-list {
   margin-bottom: 5%;
+  list-style-type: none;
+}
+
+.comments-list li{
+  padding: 4px 0;
 }
 
 .footer-box,
