@@ -22,5 +22,11 @@ describe('Testing comments counter', () => {
 
     expect(commentsCounter(commentsList)).toBe(1);
   });
+  test('Three comments', () => {
+    const commentsList = document.createElement('ul');
+    commentsList.append(comment1, comment2, comment3);
+
+    expect(commentsCounter(commentsList)).toBe(3);
+  });
   });
 });
