@@ -15,10 +15,12 @@ comment4.className = 'comment';
 const comment5 = document.createElement('li');
 comment5.className = 'comment';
 
-describe('Testing Comments Counter', () => {
-  test('Testing if it works', () => {
+describe('Testing comments counter', () => {
+  test('One comment', () => {
     const commentsList = document.createElement('ul');
+    commentsList.append(comment1);
 
-    expect(commentsList.tagName).toBe('UL');
+    expect(commentsCounter(commentsList)).toBe(1);
+  });
   });
 });
