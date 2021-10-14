@@ -33,13 +33,12 @@ const loadPage = async () => {
     Storage.setItem('isSearch', '');
     let search = Storage.getJson('search-results');
     search = validateData(search);
-    // console.log(search);
+
     card(search);
   } else {
     let shows = await getShows();
-    shows = shows.slice(0, 30);
-    // shows = validateData(shows);
-    // console.log(shows);
+    shows = validateData(shows).slice(0, 50);
+
     card(shows);
   }
   addLikes();
