@@ -15,6 +15,15 @@ const displayLikes = async () => {
   });
 };
 
+const UpdateLike = async (target, id) => {
+  const likesData = await getLikes();
+  const likes = target.parentNode.lastElementChild;
+
+  likesData.forEach((item) => {
+    if (item.item_id === id) likes.innerHTML = item.likes;
+  });
+};
+
 const addLikes = () => {
   const likeButtons = document.querySelectorAll('.heart.icon');
 
@@ -23,7 +32,9 @@ const addLikes = () => {
       const id = itemsID(e.target);
       postLikes({ item_id: id })
         .then((response) => {
-          if (response === 'Created') window.location.reload();
+          if (response === 'Created') {
+            UpdateLike(e.target, id);
+          }
         });
     });
   });
