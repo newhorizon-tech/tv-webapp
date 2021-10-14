@@ -72,7 +72,7 @@ const search = () => {
         searchShows(input.value)
           .then((results) => {
             results.forEach((result) => shows.push(result.show));
-            Storage.setItem('isSearch', 'search request active');
+            Storage.setItem('isSearch', 'search requested');
             Storage.setJson('search-results', shows);
             window.location.reload();
           });
