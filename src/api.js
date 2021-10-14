@@ -23,24 +23,6 @@ const postData = async (url, data) => {
         'Content-Type': 'application/json',
       },
     });
-    return response.json();
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
-
-const postLikes = async (id) => {
-  try {
-    const response = await fetch(`${targetUrl}likes/`, {
-      method: 'POST',
-      body: JSON.stringify({
-        item_id: id,
-      }),
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
     return response.text();
   } catch (error) {
     throw new Error(error.message);
@@ -52,6 +34,8 @@ const getShows = async () => getData('https://api.tvmaze.com/shows');
 const getLikes = async () => getData(`${targetUrl}likes`);
 
 const getComments = async (itemId) => getData(`${targetUrl}comments?item_id=${itemId}`);
+
+const postLikes = async (like) => postData(`${targetUrl}likes`, like);
 
 const postComments = async (comment) => postData(`${targetUrl}comments`, comment);
 

@@ -23,7 +23,7 @@ const addLikes = () => {
   likeButtons.forEach((heart) => {
     heart.addEventListener('click', (e) => {
       id = itemsID(e.target);
-      postLikes(id)
+      postLikes({ item_id: id })
         .then((response) => {
           if (response === 'Created') window.location.reload();
         });
