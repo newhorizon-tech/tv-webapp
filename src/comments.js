@@ -1,6 +1,6 @@
 import dialogPolyfill from 'dialog-polyfill';
 import {
-  getComments,
+  getComments, postComments,
 } from './api';
 
 const dialog = document.querySelector('#dialog');
@@ -22,10 +22,8 @@ const displayComment = (comment) => {
   commentsList.append(commentElement);
 };
 
-const displayComments = async (e) => {
+const displayComments = async (showId) => {
   commentsList.innerHTML = '';
-  const showId = e.target.parentNode.parentNode.id;
-  dialog.showModal();
 
   try {
     const comments = await getComments(showId);
@@ -35,11 +33,37 @@ const displayComments = async (e) => {
   }
 };
 
+const inputComment = async (showId) => {
+  const nameInput = document.querySelector('#name');
+  const commentInput = document.querySelector('#comment-input');
+
+  const commentObj = {
+    item_id: `${showId}`,
+    username: nameInput.value.trim(),
+    comment: commentInput.value.trim(),
+  };
+  nameInput.value = '';
+  commentInput.value = '';
+  dialog.close();
+  await postComments(commentObj);
+};
+
+const popup = async (e) => {
+  commentsList.innerHTML = '';
+  const showId = e.target.parentNode.parentNode.id;
+  dialog.showModal();
+
+  displayComments(showId);
+
+  const commentBtn = document.querySelector('#btn-comment');
+  commentBtn.addEventListener('click', async () => inputComment(showId));
+};
+
 const startComment = () => {
   const comments = document.querySelectorAll('.comments');
   const closeButton = document.querySelector('#close');
 
-  Array.from(comments, (a) => a.addEventListener('click', (e) => displayComments(e)));
+  Array.from(comments, (a) => a.addEventListener('click', (e) => popup(e)));
 
   closeButton.addEventListener('click', () => {
     dialog.close();
