@@ -14,4 +14,16 @@ const displayItemsCount = () => {
   all.appendChild(span);
 };
 
-export default displayItemsCount;
+const commentsCounter = (commentsList) => {
+  if (commentsList.tagName === 'UL') {
+    const comments = commentsList.querySelectorAll('.comment');
+    return comments.length;
+  } return 'Invalid Input';
+};
+
+const displayCommentsCounter = (element, commentsList) => {
+  const commentHeader = element.querySelector('#comments-header');
+  commentHeader.textContent = `Comments (${commentsCounter(commentsList)})`;
+};
+
+export { displayItemsCount, displayCommentsCounter };
