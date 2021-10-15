@@ -1,4 +1,4 @@
-## Copyright 2021, [ Simo Nkosi, Ala]
+## Copyright 2021, [ Simo Nkosi, Alaukik]
 <br />
 
 # <p align="center">Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)</p>

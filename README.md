@@ -91,7 +91,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- This project is part of week 1 of module 2 in the Microverse study program.
+- This project is part of week 5 of module 2 in the Microverse study program.
 - Thanks to the Microverse team for the great curriculum.
 - Thanks to Code Reviewers for the insightful feedback.
 - A great thanks to My coding partners, morning session team, and standup team Partners for their contributions.
