@@ -7,10 +7,10 @@ const displayBanner = async (bannerElement, id) => {
   const banners = imgData.filter((img) => img.type === 'banner');
   const backgrounds = imgData.filter((img) => img.type === 'background');
 
-  if (banners.length > 0) {
-    imageUrl = banners[0].resolutions.original.url;
-  } else if (backgrounds.length > 0) {
+  if (backgrounds.length > 0) {
     imageUrl = backgrounds[0].resolutions.original.url;
+  } else if (banners.length > 0) {
+    imageUrl = banners[0].resolutions.original.url;
   }
 
   bannerElement.src = imageUrl;
