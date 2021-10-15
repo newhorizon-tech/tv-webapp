@@ -209,6 +209,15 @@ button {
   border-radius: 5px;
 }
 
+#popup-banner {
+  width: 100%;
+  height: auto;
+}
+
+.loading {
+  background: transparent url('./assets/loading.gif') center no-repeat;
+}
+
 #dialog-content {
   display: flex;
   flex-direction: column;
