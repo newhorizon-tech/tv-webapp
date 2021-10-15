@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx webpack",
     "start": "npx webpack serve",
-    "test" : "npx jest"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
