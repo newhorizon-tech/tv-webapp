@@ -4,12 +4,17 @@ import {
   postComments,
 } from './api';
 
-import { displayCommentsCounter } from './counters';
+import {
+  displayCommentsCounter,
+} from './counters';
+
+import displayBanner from './banner';
 
 const dialog = document.querySelector('#dialog');
 dialogPolyfill.registerDialog(dialog);
 
 const commentsList = document.querySelector('.comments-list');
+const bannerElement = document.querySelector('#popup-banner');
 
 const displayError = () => {
   const commentMessage = document.createElement('li');
@@ -57,14 +62,17 @@ const inputComment = async () => {
 
 const popup = (e) => {
   commentsList.innerHTML = '';
+  dialog.showModal();
+
   const showElement = e.target.parentNode.parentNode;
   const showId = showElement.id;
   commentsList.id = showId;
 
+  const mazeId = showElement.getAttribute('data-mazeid');
+  displayBanner(bannerElement, mazeId);
+
   const summaryElement = document.querySelector('#dialog-summary');
   summaryElement.innerHTML = showElement.querySelector('#summary').innerHTML;
-
-  dialog.showModal();
 
   displayComments(showId);
 
@@ -81,6 +89,7 @@ const startComment = () => {
   closeButton.addEventListener('click', () => {
     dialog.close();
     commentsList.innerHTML = '';
+    bannerElement.src = '';
     document.querySelector('#comments-header').textContent = 'Comments';
   });
 };
