@@ -119,7 +119,7 @@ body {
 
 .tv-show-card {
   width: 210px;
-  height: 400px;
+  min-height: 400px;
   margin: 20px 10px;
   color: var(--color-white);
   list-style: none;
@@ -178,7 +178,7 @@ body {
 .card-actions {
   display: flex;
   justify-content: center;
-  padding-top: 5px;
+  padding: 5px 0;
 }
 
 .comments,
@@ -243,9 +243,8 @@ textarea {
   padding: 4px 0;
 }
 
-.footer-box,
 footer {
-  border: 1px solid var(--bg-dark);
+  border-top: 2px solid var(--theme-color);
 }
 
 .credits {
@@ -255,4 +254,5 @@ footer {
 .footer-box {
   height: 20px;
   background-color: var(--bg-dark);
+  border: 1px solid var(--bg-dark);
 }
