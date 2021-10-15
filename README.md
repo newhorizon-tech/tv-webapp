@@ -65,10 +65,17 @@ npx eslint .
 
 ## Authors
 
+
+👤 **Alaukik**
+
+- Github: [@newhorizon-tech](https://github.com/newhorizon-tech)
+- Twitter: [@techintosh3](https://twitter.com/techintosh3)
+
+
 👤 **Simo Nkosi**
 
-- GitHub: [@githubhandle](https://github.com/KDlamini)
-- Twitter: [@twitterhandle](https://twitter.com/RealSimoNkosi)
+- GitHub: [@KDlamini](https://github.com/KDlamini)
+- Twitter: [@RealSimoNkosi](https://twitter.com/RealSimoNkosi)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/simo-nkosi-418523180/)
 
 
