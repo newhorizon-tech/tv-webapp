@@ -41,8 +41,8 @@ const postComments = async (comment) => postData(`${targetUrl}comments`, comment
 
 const searchShows = async (query) => getData(`https://api.tvmaze.com/search/shows?q=${query}`);
 
-const getBanner = async (id) => getData(`https://api.tvmaze.com/shows/${id}/images`);
+const getImages = async (id) => getData(`https://api.tvmaze.com/shows/${id}/images`);
 
 export {
-  getShows, getLikes, getComments, postData, searchShows, postComments, postLikes, getBanner,
+  getShows, getLikes, getComments, postData, searchShows, postComments, postLikes, getImages,
 };
