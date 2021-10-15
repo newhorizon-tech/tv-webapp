@@ -1,13 +1,17 @@
 import Storage from './storage';
 
+const categoryList = document.querySelectorAll('.category-item');
+
+const refresh = () => window.location.reload();
+
+const addActive = (genre) => {
+  Storage.setItem('active', genre);
+};
+
 const returnHome = () => {
   const logo = document.querySelector('.logo');
-  const all = document.querySelector('.category-item.all');
-
-  const refresh = () => window.location.reload();
 
   logo.addEventListener('click', () => refresh());
-  all.addEventListener('click', () => refresh());
 };
 
 const loadFilter = (shows) => {
@@ -17,14 +21,17 @@ const loadFilter = (shows) => {
 };
 
 const handleGenres = (data) => {
-  const categoryList = document.querySelectorAll('.category-item');
-
   categoryList.forEach((category) => {
     category.addEventListener('click', () => {
       const genre = category.classList[1];
+      addActive(genre);
       let filter = [];
 
       switch (genre) {
+        case 'all':
+          refresh();
+          break;
+
         case 'drama':
           filter = data.filter((show) => show.genres.includes('Drama')
             || show.genres.includes('Thriller')

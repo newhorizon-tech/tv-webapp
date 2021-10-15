@@ -1,3 +1,5 @@
+import Storage from './storage';
+
 const itemsCounter = () => {
   const cards = document.querySelectorAll('.tv-show-card');
 
@@ -5,13 +7,19 @@ const itemsCounter = () => {
 };
 
 const displayItemsCount = () => {
-  const all = document.querySelector('.category-item.all');
+  let category = document.querySelector('.category-item.all');
+  const active = Storage.getItem('active');
+
+  if (active) {
+    category = document.querySelector(`.category-item.${active}`);
+    Storage.setItem('active', '');
+  }
 
   const span = document.createElement('span');
   span.className = 'items-counter';
   span.innerHTML = ` (${itemsCounter()})`;
-
-  all.appendChild(span);
+  category.style.color = '#808080';
+  category.appendChild(span);
 };
 
 const commentsCounter = (commentsList) => {
