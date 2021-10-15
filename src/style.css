@@ -210,7 +210,8 @@ button {
 }
 
 #popup-banner {
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   height: auto;
 }
 
