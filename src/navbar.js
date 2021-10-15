@@ -1,8 +1,5 @@
 import Storage from './storage';
-
-const categoryList = document.querySelectorAll('.category-item');
-
-const refresh = () => window.location.reload();
+import { loadSearch, refresh } from './home';
 
 const addActive = (genre) => {
   Storage.setItem('active', genre);
@@ -14,13 +11,9 @@ const returnHome = () => {
   logo.addEventListener('click', () => refresh());
 };
 
-const loadFilter = (shows) => {
-  Storage.setItem('isSearch', 'filter by genres');
-  Storage.setJson('search-results', shows);
-  window.location.reload();
-};
-
 const handleGenres = (data) => {
+  const categoryList = document.querySelectorAll('.category-item');
+
   categoryList.forEach((category) => {
     category.addEventListener('click', () => {
       const genre = category.classList[1];
@@ -38,7 +31,7 @@ const handleGenres = (data) => {
             || show.genres.includes('Action')
             || show.genres.includes('Mystery'));
 
-          loadFilter(filter);
+          loadSearch(filter);
           break;
 
         case 'fiction':
@@ -47,7 +40,7 @@ const handleGenres = (data) => {
             || show.genres.includes('Mystery')
             || show.genres.includes('Supernatural'));
 
-          loadFilter(filter);
+          loadSearch(filter);
           break;
 
         case 'comedy':
@@ -56,12 +49,12 @@ const handleGenres = (data) => {
             || show.genres.includes('Family')
             || show.genres.includes('Romance'));
 
-          loadFilter(filter);
+          loadSearch(filter);
           break;
 
         case 'horror':
           filter = data.filter((show) => show.genres.includes('Horror'));
-          loadFilter(filter);
+          loadSearch(filter);
           break;
 
         default:

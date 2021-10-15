@@ -61,6 +61,14 @@ const card = (shows) => {
   });
 };
 
+const refresh = () => window.location.reload();
+
+const loadSearch = (shows) => {
+  Storage.setItem('isSearch', 'search requested');
+  Storage.setJson('search-results', shows);
+  refresh();
+};
+
 const search = () => {
   const input = document.querySelector('.search-input');
 
@@ -72,9 +80,7 @@ const search = () => {
         searchShows(input.value)
           .then((results) => {
             results.forEach((result) => shows.push(result.show));
-            Storage.setItem('isSearch', 'search requested');
-            Storage.setJson('search-results', shows);
-            window.location.reload();
+            loadSearch(shows);
           });
       }
     }
@@ -82,5 +88,5 @@ const search = () => {
 };
 
 export {
-  card, search,
+  card, search, loadSearch, refresh,
 };
