@@ -4,6 +4,7 @@ import { card, search } from './home';
 import Storage from './storage';
 import { addLikes, displayLikes } from './likes';
 import { displayItemsCount } from './counters';
+import { returnHome, handleGenres } from './navbar';
 import './style.css';
 
 const validateData = (data) => {
@@ -25,19 +26,24 @@ const validateData = (data) => {
 
 const loadPage = async () => {
   const isSearch = Storage.getItem('isSearch');
+  let shows = await getShows();
+  shows = validateData(shows);
 
   if (isSearch) {
     Storage.setItem('isSearch', '');
     let search = Storage.getJson('search-results');
     search = validateData(search);
 
+    if (search.length === 0) {
+      document.querySelector('.cards-container').innerHTML = 'No results found.';
+    }
+
     card(search);
   } else {
-    let shows = await getShows();
-    shows = validateData(shows).slice(0, 50);
-
     card(shows);
   }
+
+  handleGenres(shows);
   addLikes();
   displayLikes();
   startComment();
@@ -45,4 +51,5 @@ const loadPage = async () => {
 };
 
 search();
+returnHome();
 loadPage();
