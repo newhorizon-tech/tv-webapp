@@ -8,6 +8,7 @@ const card = (shows) => {
     const li = document.createElement('li');
     li.className = 'tv-show-card';
     li.id = show.externals.imdb;
+    li.setAttribute('data-mazeid', show.id);
 
     const summary = document.createElement('div');
     summary.innerHTML = show.summary;
