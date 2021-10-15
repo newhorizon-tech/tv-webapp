@@ -111,6 +111,7 @@ body {
 
 .cards-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   height: auto;
   margin: 20px 3vw;
