@@ -15,7 +15,7 @@ const displayLikes = async () => {
   });
 };
 
-const UpdateLike = async (target) => {
+const UpdateLike = (target) => {
   const likesTag = target.parentNode.lastElementChild;
   let likes = Number(likesTag.textContent);
   likes += 1;
@@ -27,14 +27,13 @@ const addLikes = () => {
   const likeButtons = document.querySelectorAll('.heart.icon');
 
   likeButtons.forEach((heart) => {
-    heart.addEventListener('click', (e) => {
+    heart.addEventListener('click', async (e) => {
       const id = itemsID(e.target);
-      postLikes({ item_id: id })
-        .then((response) => {
-          if (response === 'Created') {
-            UpdateLike(e.target);
-          }
-        });
+      const response = await postLikes({ item_id: id });
+
+      if (response === 'Created') {
+        UpdateLike(e.target);
+      }
     });
   });
 };
